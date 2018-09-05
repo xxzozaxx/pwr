@@ -1,11 +1,12 @@
 #+TITLE: PWR a minimal shell prompt written in Rust
 #+AUTHOR: Ahmed Khaled
 
+
 *pwr:* [p]ure [w]ritten in [R]ust. is shell prompt inspired by [[https://github.com/xcambar/purs][purs]] and git-status inspired by [[https://github.com/deathlyfrantic/git-status-prompt][Git Super Status II Turbo: Hyper Fighting]]
 [[https://github.com/xxzozaxx/pwr/blob/master/screenshot/2018-09-05-212858_934x531_scrot.png?raw=true]]
 
 * Installation
-  1. fork this repo
+  1. clone this repo
   2. run ```cargo build --release```
   3. put the follow in your shell config file
      + mksh:
