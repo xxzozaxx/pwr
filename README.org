@@ -1,3 +1,7 @@
+#+TITLE: PWR a minimal shell prompt written in Rust
+#+AUTHOR: Ahmed Khaled
+
+
 *pwr:* [p]ure [w]ritten in [R]ust. is shell prompt inspired by [[https://github.com/xcambar/purs][purs]] and git-status inspired by [[https://github.com/deathlyfrantic/git-status-prompt][Git Super Status II Turbo: Hyper Fighting]]
 
 * Installation
@@ -14,7 +18,75 @@
        export PS1='$(/home/master/Documents/Programming/Rust/Apps/pwr/target/debug/pwr)'
        #+END_SRC
 
-     + zsh: IT SUCK
-* TODO
-  + Add colors
-  + Add picture
+     + zsh: IT SUCK. I searched and found nothing to do.
+
+* Configuration
+
+  you could change color, Symbols or pre-command symbol (λ in picture) be change the ~const~ in source code file.
+  it locate in =pwr/src/main.rs= you will find the follow block
+
+  #+BEGIN_SRC rust
+  /* Config START here*/
+  /* Colors */
+  const AHEAD_COLOR:     ansi_term::Colour = Green;
+  const BEHIND_COLOR:    ansi_term::Colour = Red;
+  const BRANCH_COLOR:    ansi_term::Colour = Blue;
+  const CHANGED_COLOR:   ansi_term::Colour = Purple;
+  const CLEAN_COLOR:     ansi_term::Colour = Green;
+  const DIR_COLOR:       ansi_term::Colour = Cyan;
+  const STAGED_COLOR:    ansi_term::Colour = Yellow;
+  const UNTRACKED_COLOR: ansi_term::Colour = Blue;
+  /* Symbols */
+  const AHEAD_SYMBOL     :&str = ">";
+  const BEHIND_SYMBOL    :&str = "<";
+  const CHANGED_SYMBOL   :&str = "+";
+  const CLEAN_SYMBOL     :&str = "=";
+  const PRECOMND         :&str = "λ";
+  const STAGED_SYMBOL    :&str = "-";
+  const STATUS_PREFIX    :&str = "(";
+  const STATUS_SEPARATOR :&str = "|";
+  const STATUS_SUFFIX    :&str = ")";
+  const UNTRACKED_SYMBOL :&str = "_";
+  /* Conifg END here*/
+  #+END_SRC
+
+** Note
+   + please don't comment out or delete any line, instead just put blank string as ~""~
+   + I declare only these colours ~Cyan, Blue, Red, Green, Purple, Yellow~, so if you want more please checkout [[https://docs.rs/ansi_term/0.11.0/ansi_term/enum.Colour.html][ansi_term colours]]
+* Why
+
+  1. To know more about *Rust*
+  2. To know more about *Git*
+  3. GOTO 1
+  4. also, because [[https://github.com/xcambar/purs][purs]] didn't compile.
+
+* Contribute
+
+  feel free to pull requiest, any feature. also I hope if you know more about rust to review my code :).
+  also this is the first rust code I ever write.
+* minimal
+#+BEGIN_SRC
+Command being timed: "./target/release/pwr"
+User time (seconds): 0.02
+System time (seconds): 0.00
+Percent of CPU this job got: 90%
+Elapsed (wall clock) time (h:mm:ss or m:ss): 0:00.03
+Average shared text size (kbytes): 0
+Average unshared data size (kbytes): 0
+Average stack size (kbytes): 0
+Average total size (kbytes): 0
+Maximum resident set size (kbytes): 11400
+Average resident set size (kbytes): 0
+Major (requiring I/O) page faults: 0
+Minor (reclaiming a frame) page faults: 790
+Voluntary context switches: 1
+Involuntary context switches: 1
+Swaps: 0
+File system inputs: 0
+File system outputs: 0
+Socket messages sent: 0
+Socket messages received: 0
+Signals delivered: 0
+Page size (bytes): 4096
+Exit status: 0
+#+END_SRC
